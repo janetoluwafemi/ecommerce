@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Index from './component/Index.jsx';
-import AboutUs from './component/AboutUs/AboutUs';
-import SignUp from './component/registration/SignUp.jsx';
+import AboutUs from './component/AboutUs.jsx';
+import SignUp from './component/SignUp.jsx';
 import CreateProduct from './component/CreateProduct.jsx';
 import DeleteProduct from './component/DeleteProduct.jsx';
 import FindProduct from './component/FindProduct.jsx';

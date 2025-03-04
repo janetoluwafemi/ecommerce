@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import image1 from '../../images/ecommerce-mcommerce-featured-image-5fd09a3a5ff2a-1-1.png'
-import '../../styles/AboutUs.css'
+import image1 from '../images/ecommerce-mcommerce-featured-image-5fd09a3a5ff2a-1-1.png'
+import '../styles/AboutUs.css'
 
 function AboutUs() {
     return (

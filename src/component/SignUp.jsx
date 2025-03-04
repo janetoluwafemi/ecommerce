@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../styles/SignUp.css';
+import '../styles/SignUp.css';
 
 function SignUp() {
     const [formData, setFormData] = useState({
