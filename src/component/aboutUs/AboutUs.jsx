@@ -18,7 +18,7 @@ function AboutUs() {
                 </nav>
             </div>
             <div className="about_image">
-            <img src={image1}/>
+            <img src={image1} alt={image1}/>
             </div>
             <div>
                 <h1>An Ecommerce App</h1>
