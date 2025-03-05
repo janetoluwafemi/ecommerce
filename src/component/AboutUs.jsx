@@ -14,6 +14,7 @@ function AboutUs() {
                         <li><Link to="/find_product">Find Product</Link></li>
                         <li><Link to="/add_to_cart">Add To Cart</Link></li>
                         <li><Link to="/delete_from_cart">Delete From Cart</Link></li>
+                        <li><Link to="/make_payment">Make Payment</Link></li>
                     </ul>
                 </nav>
             </div>

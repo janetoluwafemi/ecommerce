@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": "554b",
+      "firstName": "Oluwafemi",
+      "lastName": "Janet",
+      "phoneNumber": "09065927188",
+      "email": "Kola@gmail.com",
+      "password": "Kola8888",
+      "accountNumber": "9065927188",
+      "address": "3, Arike Street"
+    }
+  ],
+  "products": [
+    {
+      "id": "cdc8",
+      "name": "kiekie",
+      "category": "For wearing",
+      "price": "7000",
+      "description": "eat",
+      "userId": "67c718a078efbd60058d3d91"
+    },
+    {
+      "id": "5789",
+      "name": "plates",
+      "category": "For food",
+      "price": "7000",
+      "description": "eat",
+      "userId": "67c718a078efbd60058d3d91"
+    },
+    {
+      "id": "fade",
+      "name": "nike",
+      "category": "for design",
+      "price": "10000",
+      "description": "for covering the mouth",
+      "userId": "67c718a078efbd60058d3d91"
+    },
+    {
+      "id": "b011",
+      "name": "indomie",
+      "category": "For food",
+      "price": "10000",
+      "description": "to cook",
+      "userId": "undefined"
+    }
+  ],
+  "cart": [
+    {
+      "id": "c271",
+      "name": "food"
+    },
+    {
+      "id": "254a",
+      "name": "food"
+    },
+    {
+      "id": "73ed",
+      "name": "food"
+    },
+    {
+      "id": "80c0",
+      "name": "food"
+    },
+    {
+      "id": "e086",
+      "name": "food"
+    },
+    {
+      "id": "d448",
+      "name": "food"
+    },
+    {
+      "id": "3557",
+      "name": "food"
+    },
+    {
+      "id": "121e",
+      "name": "food"
+    },
+    {
+      "id": "1947",
+      "name": "food"
+    },
+    {
+      "id": "3e04",
+      "name": "food"
+    },
+    {
+      "id": "8891",
+      "name": "food"
+    },
+    {
+      "id": "0ea2",
+      "name": "food"
+    },
+    {
+      "id": "4a20",
+      "name": "indomie"
+    },
+    {
+      "id": "dd97",
+      "name": "indomie"
+    },
+    {
+      "id": "d917",
+      "name": "indomie"
+    },
+    {
+      "id": "4431",
+      "name": "indomie"
+    },
+    {
+      "id": "8631",
+      "name": "bean",
+      "userId": "undefined",
+      "productId": null
+    }
+  ],
+  "payment": [
+    {
+      "id": "1f00",
+      "email": "Kola@gmail.com",
+      "amount": 800000
+    }
+  ]
+}

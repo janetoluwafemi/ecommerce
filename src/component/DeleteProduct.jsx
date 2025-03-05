@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function DeleteCard() {
+function DeleteProduct() {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
+    const [productId, setProductId] = useState('');
     const handleDelete = async (e) => {
         e.preventDefault();
 
+        const savedProductId = sessionStorage.getItem('productId');
         const productId = localStorage.getItem('productId');
-        console.log(productId, 'productId in handleDelete');
+        const currentProductId = savedProductId || productId;
 
-        if (!productId) {
+        setProductId(currentProductId);
+        console.log(currentProductId, 'productId in handleDelete');
+
+        if (!currentProductId) {
             alert("Please enter a product ID.");
             return;
         }
@@ -21,7 +26,7 @@ function DeleteCard() {
         setMessage('');
 
         try {
-            const response = await axios.delete(`http://localhost:8083/api/product/${productId}`);
+            const response = await axios.delete(`http://localhost:8083/products/${currentProductId}`);
             setMessage(response.data.message);
             console.log('Product deleted successfully:', response.data);
         } catch (error) {
@@ -46,4 +51,4 @@ function DeleteCard() {
     );
 }
 
-export default DeleteCard;
+export default DeleteProduct;
