@@ -83,7 +83,6 @@ function AddToCart() {
                 </button>
             </form>
 
-            {/* Displaying cart details */}
             {cart && cart.length > 0 ? (
                 <div className="cart-details">
                     <h2>Cart Details:</h2>

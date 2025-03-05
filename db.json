@@ -9,6 +9,16 @@
       "password": "Kola8888",
       "accountNumber": "9065927188",
       "address": "3, Arike Street"
+    },
+    {
+      "id": "01ac",
+      "firstName": "Jane",
+      "lastName": "Jannn",
+      "phoneNumber": "08012345678",
+      "email": "jane@gmail.com",
+      "password": "jabbb333",
+      "accountNumber": "8012345678",
+      "address": "3, Arike Street"
     }
   ],
   "products": [

@@ -43,7 +43,6 @@ function DeleteFromCart() {
         console.log(`Deleting product with ID: ${productId}`);
 
         try {
-            // Check if the productId exists in the cart data
             const cartData = await axios.get('http://localhost:8083/cart');
             const productExists = cartData.data.some(item => item.id === productId);
 
@@ -51,11 +50,9 @@ function DeleteFromCart() {
                 setError(`Product with ID ${productId} does not exist in the cart.`);
                 return;
             }
-
-            // Sending the DELETE request to the correct URL
             const response = await axios.delete(`http://localhost:8083/cart/${productId}`);
             setMessage("Product successfully deleted from cart!");
-            console.log(response.data);  // Log the response to verify deletion
+            console.log(response.data);
         } catch (error) {
             console.error('There was an error!', error);
             setError('Error deleting product from cart. Please try again.');
