@@ -50,7 +50,7 @@ function DeleteFromCart() {
                 setError(`Product with ID ${productId} does not exist in the cart.`);
                 return;
             }
-            const response = await axios.delete(`http://localhost:8083/cart/${productId}`);
+            const response = await axios.delete(`http://localhost:8083/api/cart/${productId}`);
             setMessage("Product successfully deleted from cart!");
             console.log(response.data);
         } catch (error) {

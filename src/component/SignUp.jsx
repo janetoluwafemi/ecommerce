@@ -50,7 +50,7 @@ function SignUp() {
                 console.log(response.data)
                 console.log(sessionStorage, 'hiiii')
                 alert("User registered successfully!");
-                window.location.href = "/create_bucket";
+                window.location.href = "/create_product";
                 console.log(sessionStorage, 'hiiii')
             })
 
@@ -58,61 +58,7 @@ function SignUp() {
                 setLoading(false);
             });
     };
-    // const [formData, setFormData] = useState({
-    //     firstName: '',
-    //     lastName: '',
-    //     phoneNumber: '',
-    //     email: '',
-    //     password: '',
-    //     accountNumber: '',
-    //     address: ''
-    // });
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState('');
-    //
-    // const handleChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setFormData((prevState) => ({
-    //         ...prevState,
-    //         [name]: value
-    //     }));
-    // };
-    //
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (!formData.firstName || !formData.lastName || !formData.phoneNumber || !formData.email || !formData.password || !formData.accountNumber || !formData.address) {
-    //         alert("Please fill in all required fields.");
-    //         return;
-    //     }
-    //     setLoading(true);
-    //     setError('');
-    //     console.log("Form is being submitted!");
-    //
-    //     axios.post('http://localhost:8083/api/users', formData)
-    //         .catch(error => {
-    //             console.error('There was an error!', error);
-    //             if (error.response && error.response.data.message === 'Email or Phone Number already in use.') {
-    //                 setError('This email or phone number is already registered. Please use a different one.');
-    //             } else {
-    //                 setError('Registration failed. Please try again.');
-    //             }
-    //         })
-    //         .then(response => {
-    //             const userId = response.data.userId;
-    //             sessionStorage.setItem('userId', userId);
-    //             localStorage.setItem('userId', userId);
-    //             console.log(userId)
-    //             console.log(response.data)
-    //             console.log(sessionStorage, 'hiiii')
-    //             alert("User registered successfully!");
-    //             window.location.href = "/create_product";
-    //             console.log(sessionStorage, 'hiiii')
-    //         })
-    //
-    //         .finally(() => {
-    //             setLoading(false);
-    //         });
-    // };
+
 
     return (
         <div className="signup-container">
