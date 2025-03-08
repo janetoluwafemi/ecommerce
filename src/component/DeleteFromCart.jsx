@@ -5,27 +5,52 @@ function DeleteFromCart() {
     const [name, setName] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [userId, setUserId] = useState('');
+    const [productId, setProductId] = useState('');
     const [message, setMessage] = useState('');
+
     const handleDelete = async (e) => {
         e.preventDefault();
 
-        const userId = localStorage.getItem('userId');
-        const productId = localStorage.getItem('productId');
+        const userFromSession = sessionStorage.getItem('userId');
+        const userFromLocalStorage = localStorage.getItem('userId');
+        const storedProductId = localStorage.getItem('productId');
 
-        if (!userId || !productId || !name) {
-            alert("All fields must be filled.");
+        const currentUserId = userFromSession || userFromLocalStorage;
+        const currentProduct = storedProductId;
+        setUserId(currentUserId);
+        setProductId(currentProduct);
+
+        if (!currentUserId) {
+            alert("Please log in to add a product to your cart.");
+            return;
+        }
+
+        if (!storedProductId) {
+            alert("Please select a product first.");
+            return;
+        }
+
+        if (!name) {
+            alert("Please enter a product name.");
             return;
         }
 
         setLoading(true);
         setError('');
+        setMessage('');
         console.log("Form is being submitted!");
+        console.log(`Deleting product with ID: ${productId}`);
 
         try {
-            const response = await axios.delete(`http://localhost:8083/api/deleteProduct/${userId}/${productId}`, {
-                data: { name },
-            });
+            const cartData = await axios.get('http://localhost:8083/cart');
+            const productExists = cartData.data.some(item => item.id === productId);
 
+            if (!productExists) {
+                setError(`Product with ID ${productId} does not exist in the cart.`);
+                return;
+            }
+            const response = await axios.delete(`http://localhost:8083/cart/${productId}`);
             setMessage("Product successfully deleted from cart!");
             console.log(response.data);
         } catch (error) {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 
 function AddToCart() {
@@ -6,36 +6,49 @@ function AddToCart() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
-
+    const [userId, setUserId] = useState('');
+    const [productId, setProductId] = useState('');
+    const [cart, setCart] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const userId = localStorage.getItem('userId');
-        console.log(userId, 'userId in handleSubmit');
+        const userFromSession = sessionStorage.getItem('userId');
+        const userFromLocalStorage = localStorage.getItem('userId');
+        const storedProductId = localStorage.getItem('productId');
 
-        if (!userId) {
-            alert("Please enter a user ID.");
-        }
-        const productId = localStorage.getItem('productId');
-        console.log(productId, 'productId in handleSubmit');
+        const currentUserId = userFromSession || userFromLocalStorage;
+        const currentProduct = storedProductId;
+        setUserId(currentUserId);
+        setProductId(currentProduct);
 
-        if (!productId) {
-            alert("Please enter a product ID.");
+        if (!currentUserId) {
+            alert("Please log in to add a product to your cart.");
             return;
         }
-        if (!name || !userId || !productId) {
-            alert("All fields must be filled.");
+
+        if (!storedProductId) {
+            alert("Please select a product first.");
             return;
         }
+
+        if (!name) {
+            alert("Please enter a product name.");
+            return;
+        }
+
         setLoading(true);
         setError('');
+        setMessage('');
         console.log("Form is being submitted!");
 
         try {
-            const response = await axios.post(`http://localhost:8083/api/addProduct/${userId}/${productId}`, {
-                name: name,
-            });
+            const response = await axios.post(
+                `http://localhost:8083/cart`,
+                { name: name, userId: currentUserId, productId: currentProduct }
+            );
+            setCart(prevCart => [...prevCart, response.data]);
+
             setMessage("Product successfully added to cart!");
             console.log(response.data);
         } catch (error) {
@@ -45,6 +58,7 @@ function AddToCart() {
             setLoading(false);
         }
     };
+
     return (
         <div>
             <h1>Add Product To Cart</h1>
@@ -59,15 +73,33 @@ function AddToCart() {
                         placeholder="Enter Product Name"
                         required
                     />
-
                 </div>
+
                 {error && <div className="error-message">{error}</div>}
                 {message && <div className="success-message">{message}</div>}
+
                 <button type="submit" disabled={loading}>
                     {loading ? 'Adding Product...' : 'Add Product'}
                 </button>
             </form>
-        </div>)
+
+            {cart && cart.length > 0 ? (
+                <div className="cart-details">
+                    <h2>Cart Details:</h2>
+                    <ul>
+                        {cart.map((cartItem) => (
+                            <li key={cartItem.id}>
+                                <p><strong>Cart Item ID:</strong> {cartItem.id}</p>
+                                <p><strong>Cart Item Name:</strong> {cartItem.name}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ) : (
+                <div>No items in the cart.</div>
+            )}
+        </div>
+    );
 }
 
 export default AddToCart;

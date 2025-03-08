@@ -3,7 +3,8 @@ import axios from 'axios';
 
 function FindProduct() {
     const [name, setName] = useState('');
-    const [productId, setProductId] = useState('');
+    const [product, setProduct] = useState(null);
+    const [userId, setUserId] = useState('');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
@@ -11,14 +12,17 @@ function FindProduct() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const userId = localStorage.getItem('userId');
+        const userFromSession = sessionStorage.getItem('userId');
+        const userFromLocalStorage = localStorage.getItem('userId');
+        const currentUserId = userFromSession || userFromLocalStorage;
 
-        if (!userId) {
+        setUserId(currentUserId);
+
+        if (!currentUserId) {
             setError('User is not logged in. Please log in first.');
             setLoading(false);
             return;
         }
-        console.log('Form submitted with name:', name);
 
         if (!name) {
             alert("Please enter a Product name.");
@@ -28,23 +32,24 @@ function FindProduct() {
         setLoading(true);
         setError('');
         setMessage('');
-        setProductId('');
+        setProduct(null);
 
         try {
-            const url = `http://localhost:8083/api/product/${userId}${name}`;
+            const url = `http://localhost:8083/products?name=${name}`;
             console.log('Making API request to:', url);
 
             const response = await axios.get(url);
             console.log('API Response:', response);
 
-            if (response.data && response.data.productId) {
-                setProductId(response.data.productId);
-                setMessage(`Product ID found: ${response.data.productId}`);
+            if (response.data && response.data.length > 0) {
+                const product = response.data[0];
+                setProduct(product);
+                setMessage(`Product found: ${product.name} (ID: ${product.id})`);
 
-                localStorage.setItem('productId', response.data.productId);
-                console.log('Product found successfully:', response.data);
+                localStorage.setItem('productId', product.id);
+                console.log('Product found successfully:', product);
+
                 window.location.href = "/delete_product";
-                console.log(sessionStorage, 'hiiii')
             } else {
                 setError('Product not found.');
             }
@@ -55,7 +60,6 @@ function FindProduct() {
             setLoading(false);
         }
     };
-
 
     return (
         <div>
@@ -78,6 +82,16 @@ function FindProduct() {
                     {loading ? 'Finding Product...' : 'Find Product'}
                 </button>
             </form>
+
+            {product && (
+                <div className="product-details">
+                    <h2>Found Product:</h2>
+                    <p><strong>Name:</strong> {product.name}</p>
+                    <p><strong>Category:</strong> {product.category}</p>
+                    <p><strong>Price:</strong> ${product.price}</p>
+                    <p><strong>Description:</strong> {product.description}</p>
+                </div>
+            )}
         </div>
     );
 }
