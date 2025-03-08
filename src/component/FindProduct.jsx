@@ -47,7 +47,7 @@ function FindProduct() {
                 setMessage(`Product found: ${product.name} (ID: ${product.id})`);
 
                 localStorage.setItem('productId', product.id);
-                console.log('Product found successfully:', product);
+                console.log('Product Found successfully:', product);
 
                 window.location.href = "/delete_product";
             } else {

@@ -49,7 +49,7 @@ function AddToCart() {
             );
             setCart(prevCart => [...prevCart, response.data]);
 
-            setMessage("Product successfully added to cart!");
+            setMessage("Product Successfully Added To Cart!");
             console.log(response.data);
         } catch (error) {
             console.error('There was an error!', error);

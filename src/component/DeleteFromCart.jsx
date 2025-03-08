@@ -51,7 +51,7 @@ function DeleteFromCart() {
                 return;
             }
             const response = await axios.delete(`http://localhost:8083/cart/${productId}`);
-            setMessage("Product successfully deleted from cart!");
+            setMessage("Product Successfully Deleted From Cart!");
             console.log(response.data);
         } catch (error) {
             console.error('There was an error!', error);

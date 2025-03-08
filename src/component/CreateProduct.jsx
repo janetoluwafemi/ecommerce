@@ -51,7 +51,7 @@ function CreateProduct() {
             localStorage.setItem('productId', productId);
 
             console.log('Product created successfully:', response.data);
-            alert("Product created successfully!");
+            alert("Product Created Successfully!");
         } catch (error) {
             console.error('Error creating product:', error.response ? error.response.data : error.message);
             setError("Error creating product");

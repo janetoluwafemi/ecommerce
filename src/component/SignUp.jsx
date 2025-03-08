@@ -49,7 +49,7 @@ function SignUp() {
                 console.log(userId)
                 console.log(response.data)
                 console.log(sessionStorage, 'hiiii')
-                alert("User registered successfully!");
+                alert("User Registered Successfully!");
                 window.location.href = "/create_product";
                 console.log(sessionStorage, 'hiiii')
             })

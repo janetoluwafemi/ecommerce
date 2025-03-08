@@ -41,7 +41,7 @@ function MakePayment() {
                 },
             });
 
-            console.log('Payment made successfully:', response.data);
+            console.log('The Payment made successfully:', response.data);
             alert("Payment made successfully!");
         } catch (error) {
             console.error('Error making payment:', error);
