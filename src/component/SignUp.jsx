@@ -33,7 +33,7 @@ function SignUp() {
         }
         setLoading(true);
         setError('');
-        axios.post('http://localhost:8083/api/users', formData)
+        axios.post('http://localhost:8083/users', formData)
             .catch(error => {
                 console.error('There was an error!', error);
                 if (error.response && error.response.data.message === 'Email or Phone Number already in use.') {

@@ -26,7 +26,7 @@ function DeleteProduct() {
         setMessage('');
 
         try {
-            const response = await axios.delete(`http://localhost:8083/api/products/${currentProductId}`);
+            const response = await axios.delete(`http://localhost:8083/products/${currentProductId}`);
             setMessage(response.data.message);
             console.log('Product Deleted Successfully:', response.data);
         } catch (error) {

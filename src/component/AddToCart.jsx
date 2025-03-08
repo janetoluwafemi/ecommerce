@@ -44,7 +44,7 @@ function AddToCart() {
 
         try {
             const response = await axios.post(
-                `http://localhost:8083/api/cart`,
+                `http://localhost:8083/cart`,
                 { name: name, userId: currentUserId, productId: currentProduct }
             );
             setCart(prevCart => [...prevCart, response.data]);

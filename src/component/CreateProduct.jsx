@@ -38,7 +38,7 @@ function CreateProduct() {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:8083/api/products', productData, {
+            const response = await axios.post('http://localhost:8083/products', productData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

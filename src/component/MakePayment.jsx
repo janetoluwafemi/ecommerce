@@ -31,7 +31,7 @@ function MakePayment() {
                 return;
             }
 
-            const response = await axios.post('http://localhost:8083/api/payment', {
+            const response = await axios.post('http://localhost:8083/payment', {
                 email: email,
                 amount: parseFloat(amount) * 100,
                 accountNumber: accountNumber
