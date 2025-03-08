@@ -25,15 +25,15 @@ function SignUp() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(formData);
+
         if (!formData.firstName || !formData.lastName || !formData.phoneNumber || !formData.email || !formData.password || !formData.accountNumber || !formData.address) {
             alert("Please fill in all required fields.");
             return;
         }
         setLoading(true);
         setError('');
-        console.log("Form is being submitted!");
-
-        axios.post('http://localhost:8083/users', formData)
+        axios.post('http://localhost:8083/api/users', formData)
             .catch(error => {
                 console.error('There was an error!', error);
                 if (error.response && error.response.data.message === 'Email or Phone Number already in use.') {
@@ -58,6 +58,7 @@ function SignUp() {
                 setLoading(false);
             });
     };
+
 
     return (
         <div className="signup-container">

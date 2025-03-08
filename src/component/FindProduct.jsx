@@ -35,7 +35,7 @@ function FindProduct() {
         setProduct(null);
 
         try {
-            const url = `http://localhost:8083/products?name=${name}`;
+            const url = `http://localhost:8083/api/products?name=${name}`;
             console.log('Making API request to:', url);
 
             const response = await axios.get(url);
