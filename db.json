@@ -19,6 +19,26 @@
       "password": "jabbb333",
       "accountNumber": "8012345678",
       "address": "3, Arike Street"
+    },
+    {
+      "id": "fe63",
+      "firstName": "Oluwafemi",
+      "lastName": "Janet",
+      "phoneNumber": "09065927188",
+      "email": "YinkaOluwafemi@gmail.com",
+      "password": "io90000",
+      "accountNumber": "9065927188",
+      "address": "3, Arike Street"
+    },
+    {
+      "id": "06bf",
+      "firstName": "oluwafemi",
+      "lastName": "Godspower",
+      "phoneNumber": "09065927188",
+      "email": "YinkaOluwafemi@gmail.com",
+      "password": "io90000",
+      "accountNumber": "9009876543",
+      "address": "3, Arike Street"
     }
   ],
   "products": [
@@ -52,6 +72,14 @@
       "category": "For food",
       "price": "10000",
       "description": "to cook",
+      "userId": "undefined"
+    },
+    {
+      "id": "b63d",
+      "name": "biscuit",
+      "category": "for eating",
+      "price": "10000",
+      "description": "To eat",
       "userId": "undefined"
     }
   ],
@@ -132,6 +160,12 @@
       "id": "1f00",
       "email": "Kola@gmail.com",
       "amount": 800000
+    },
+    {
+      "id": "d1a2",
+      "email": "Kola@gmail.com",
+      "amount": 700000,
+      "accountNumber": "7010102299"
     }
   ]
 }
